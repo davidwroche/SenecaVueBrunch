@@ -4,7 +4,6 @@ import Router from 'vue-router'
 import App from './App'
 import { routes } from './router/routes';
 
-Vue.use(Router)
 
 var seneca;
 seneca = Seneca()
@@ -17,11 +16,18 @@ const router =  new Router({
     mode: 'history'
 });
 
+Vue.use(Router)
+Vue.use(seneca)
+
 
 /* eslint-disable no-new */
 const app = new Vue({
-  router,
+  routes,
+  seneca,
   render: h => h(App)
 })
 
 app.$mount('#app')
+
+//console.log(app)
+//console.log(seneca)

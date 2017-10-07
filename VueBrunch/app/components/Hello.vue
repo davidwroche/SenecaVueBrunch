@@ -17,24 +17,24 @@ export default {
 
 
     created (){
-         var s = Seneca().test('print')
+      /*   var s = Seneca().test('print')
 
  s.client({type:'browser', pin:'a:*'})
  s.client({type:'browser', pin:'b:*'})
 
 
- s.act('a:1,x:1', console.log)
+ s.act('a:1,x:1', console.log)*/
     },
 
     mounted () {
-        var self = this;
+       const self = this;
 
-        console.log(self)
-        console.log(window)
-        /*seneca.add('cm:blue', function(msg, reply) {
+      const seneca = self.$root.$options.seneca;
+
+        seneca.add('cm:blue', function(msg, reply) {
             blue.res = msg.res.x
             reply()
-        })*/
+        })
 
     },
 }

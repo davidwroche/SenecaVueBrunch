@@ -208,19 +208,16 @@ exports.default = {
     };
   },
 
-  created: function created() {
-    var s = Seneca().test('print');
-
-    s.client({ type: 'browser', pin: 'a:*' });
-    s.client({ type: 'browser', pin: 'b:*' });
-
-    s.act('a:1,x:1', console.log);
-  },
+  created: function created() {},
   mounted: function mounted() {
     var self = this;
 
-    console.log(self);
-    console.log(window);
+    var seneca = self.$root.$options.seneca;
+
+    seneca.add('cm:blue', function (msg, reply) {
+      blue.res = msg.res.x;
+      reply();
+    });
   }
 };
 })()
@@ -299,8 +296,6 @@ var _routes = require('./router/routes');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_vue2.default.use(_vueRouter2.default);
-
 var seneca;
 seneca = Seneca().test('print').client({ type: 'browser', pin: 'a:*' }).client({ type: 'browser', pin: 'b:*' });
 
@@ -309,9 +304,13 @@ var router = new _vueRouter2.default({
     mode: 'history'
 });
 
+_vue2.default.use(_vueRouter2.default);
+_vue2.default.use(seneca);
+
 /* eslint-disable no-new */
 var app = new _vue2.default({
-    router: router,
+    routes: _routes.routes,
+    seneca: seneca,
     render: function render(h) {
         return h(_App2.default);
     }
@@ -319,9 +318,12 @@ var app = new _vue2.default({
 
 app.$mount('#app');
 
+//console.log(app)
+//console.log(seneca)
+
 });
 
-require.register("router/routes.js", function(exports, require, module) {
+;require.register("router/routes.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
