@@ -22,9 +22,9 @@ Vue.use(seneca)
 
 /* eslint-disable no-new */
 const app = new Vue({
-  routes,
-  seneca,
-  render: h => h(App)
+    router,
+    seneca,
+    render: h => h(App)
 })
 
 app.$mount('#app')

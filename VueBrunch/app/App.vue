@@ -1,31 +1,37 @@
-<style scoped>
-    .container{
-        background-color: white;
-    }
-</style>
-
 <template>
     <div class="container">
         <div class="row">
-            <hello></hello>
+            <div class="header">
+                <redsection></redsection>
+                <bluesection></bluesection>
+                <greensection></greensection>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-    import Hello from './components/Hello.vue';
+    import Red from './components/red.vue';
+    import Blue from './components/blue.vue';
+    import Green from './components/green.vue';
 
     export default {
         components: {
-            hello: Hello,
-        },
-
-        data() {
-            return {
-            }
-        },
-        beforeCreate(){
-        console.log('hi')
+            redsection: Red,
+            bluesection: Blue,
+            greensection: Green
         }
     }
+
 </script>
+
+<style>
+    #app {
+        font-family: 'Avenir', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-align: center;
+        color: #2c3e50;
+        margin-top: 60px;
+    }
+</style>

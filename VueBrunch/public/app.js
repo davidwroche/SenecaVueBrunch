@@ -156,31 +156,33 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _Hello = require('./components/Hello.vue');
+var _red = require('./components/red.vue');
 
-var _Hello2 = _interopRequireDefault(_Hello);
+var _red2 = _interopRequireDefault(_red);
+
+var _blue = require('./components/blue.vue');
+
+var _blue2 = _interopRequireDefault(_blue);
+
+var _green = require('./components/green.vue');
+
+var _green2 = _interopRequireDefault(_green);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
     components: {
-        hello: _Hello2.default
-    },
-
-    data: function data() {
-        return {};
-    },
-    beforeCreate: function beforeCreate() {
-        console.log('hi');
+        redsection: _red2.default,
+        bluesection: _blue2.default,
+        greensection: _green2.default
     }
 };
 })()
 if (module.exports.__esModule) module.exports = module.exports.default
 var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"container"},[_c('div',{staticClass:"row"},[_c('hello')],1)])}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"container"},[_c('div',{staticClass:"row"},[_c('div',{staticClass:"header"},[_c('redsection'),_vm._v(" "),_c('bluesection'),_vm._v(" "),_c('greensection')],1)])])}
 __vue__options__.staticRenderFns = []
-__vue__options__._scopeId = "data-v-2e015f16"
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
@@ -193,7 +195,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
 })()}
 });
 
-;require.register("components/Hello.vue", function(exports, require, module) {
+;require.register("components/babyblue.vue", function(exports, require, module) {
 ;(function(){
 'use strict';
 
@@ -201,19 +203,68 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = {
-  name: 'hello',
+
+  props: ['res'],
+
   data: function data() {
     return {
-      msg: 'Welcom to Your Vue.js App'
+      total: 0
     };
   },
 
-  created: function created() {},
+  watch: {
+    res: function res(newVal) {
+      this.total += Number(newVal);
+    }
+  }
+
+};
+})()
+if (module.exports.__esModule) module.exports = module.exports.default
+var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
+if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"second"}},[_c('h2',[_vm._v("BabyBlue")]),_vm._v(" "),_c('h5',[_vm._v("Prop Value")]),_vm._v(" "),_c('p',[_vm._v(_vm._s(_vm.res))]),_vm._v(" "),_c('h5',[_vm._v("Total")]),_vm._v(" "),_c('p',[_vm._v(_vm._s(_vm.total))])])}
+__vue__options__.staticRenderFns = []
+__vue__options__._scopeId = "data-v-be37b906"
+if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-be37b906", __vue__options__)
+  } else {
+    hotAPI.reload("data-v-be37b906", __vue__options__)
+  }
+})()}
+});
+
+;require.register("components/blue.vue", function(exports, require, module) {
+;(function(){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _babyblue = require('./babyblue.vue');
+
+var _babyblue2 = _interopRequireDefault(_babyblue);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+  components: {
+    babybluesection: _babyblue2.default
+  },
+
+  data: function data() {
+    return {
+      res: ''
+    };
+  },
   mounted: function mounted() {
-    var self = this;
-
-    var seneca = self.$root.$options.seneca;
-
+    var blue = this;
+    var seneca = this.$options.parent.$options.parent.$options.seneca;
     seneca.add('cm:blue', function (msg, reply) {
       blue.res = msg.res.x;
       reply();
@@ -224,22 +275,65 @@ exports.default = {
 if (module.exports.__esModule) module.exports = module.exports.default
 var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"hello"},[_c('h1',[_vm._v(_vm._s(_vm.msg))]),_vm._v(" "),_c('h2',[_vm._v("Essential Links")])])}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"second"}},[_c('h2',[_vm._v("Blue")]),_vm._v(" "),_c('p',[_vm._v(_vm._s(_vm.res))]),_vm._v(" "),_c('babybluesection',{attrs:{"res":_vm.res}})],1)}
 __vue__options__.staticRenderFns = []
-__vue__options__._scopeId = "data-v-8334f096"
+__vue__options__._scopeId = "data-v-142af727"
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-8334f096", __vue__options__)
+    hotAPI.createRecord("data-v-142af727", __vue__options__)
   } else {
-    hotAPI.reload("data-v-8334f096", __vue__options__)
+    hotAPI.reload("data-v-142af727", __vue__options__)
   }
 })()}
 });
 
-;require.register("components/error.vue", function(exports, require, module) {
+;require.register("components/green.vue", function(exports, require, module) {
+;(function(){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = {
+  data: function data() {
+    return {
+      show: ''
+    };
+  },
+  mounted: function mounted() {
+    var green = this;
+    var seneca = this.$options.parent.$options.parent.$options.seneca;
+
+    seneca.add('ann:show', function (msg, reply) {
+      green.show = msg.show;
+
+      reply();
+    });
+  }
+};
+})()
+if (module.exports.__esModule) module.exports = module.exports.default
+var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
+if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"third"}},[_c('h2',[_vm._v("Green")]),_vm._v(" "),_c('p',[_c('i',[_vm._v(_vm._s(_vm.show))])])])}
+__vue__options__.staticRenderFns = []
+__vue__options__._scopeId = "data-v-7ad29d86"
+if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7ad29d86", __vue__options__)
+  } else {
+    hotAPI.reload("data-v-7ad29d86", __vue__options__)
+  }
+})()}
+});
+
+;require.register("components/hello.vue", function(exports, require, module) {
 ;(function(){
 'use strict';
 
@@ -247,32 +341,95 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.default = {
-    name: 'Error',
+    name: 'hello',
     data: function data() {
         return {
-            path: ''
+            msg: 'Welcom to Your Vue.js App'
         };
     },
-    created: function created() {
-        var route = this.$route;
 
-        this.path = route.path;
+    created: function created() {},
+    mounted: function mounted() {
+        var self = this;
+
+        var seneca = self.$root.$options.seneca;
+
+        seneca.add('cm:blue', function (msg, reply) {
+            blue.res = msg.res.x;
+            reply();
+        });
     }
 };
 })()
 if (module.exports.__esModule) module.exports = module.exports.default
 var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"error"},[_c('h1',[_vm._v("Page not found")]),_vm._v(" "),_c('p',[_vm._v("It would appear that "),_c('em',[_vm._v(_vm._s(_vm.path))]),_vm._v(" could not be found.")])])}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"hello"},[_c('h1',[_vm._v(_vm._s(_vm.msg))]),_vm._v(" "),_c('h2',[_vm._v("Essential Links")])])}
 __vue__options__.staticRenderFns = []
+__vue__options__._scopeId = "data-v-46f367d5"
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-1343960b", __vue__options__)
+    hotAPI.createRecord("data-v-46f367d5", __vue__options__)
   } else {
-    hotAPI.reload("data-v-1343960b", __vue__options__)
+    hotAPI.reload("data-v-46f367d5", __vue__options__)
+  }
+})()}
+});
+
+;require.register("components/red.vue", function(exports, require, module) {
+;(function(){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
+    data: function data() {
+        return {
+            msg: 'a:1,x:3'
+        };
+    },
+
+    methods: {
+
+        act: function act() {
+            var seneca = this.$options.parent.$options.parent.$options.seneca;
+            seneca.act(this.msg, function (err, out) {
+                this.act({
+                    cm: 'blue',
+                    res: out
+                });
+            });
+        },
+
+        show: function show() {
+            var seneca = this.$options.parent.$options.parent.$options.seneca;
+            seneca.act({
+                ann: 'show',
+                show: this.msg
+            });
+        }
+    }
+
+};
+})()
+if (module.exports.__esModule) module.exports = module.exports.default
+var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
+if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"first"}},[_c('h1',[_vm._v("Red")]),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.msg),expression:"msg"}],domProps:{"value":(_vm.msg)},on:{"input":function($event){if($event.target.composing){ return; }_vm.msg=$event.target.value}}}),_vm._v(" "),_c('button',{on:{"click":_vm.act}},[_vm._v("Act")]),_vm._v(" "),_c('button',{on:{"click":_vm.show}},[_vm._v("Show")])])}
+__vue__options__.staticRenderFns = []
+__vue__options__._scopeId = "data-v-10846ed4"
+if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-10846ed4", __vue__options__)
+  } else {
+    hotAPI.reload("data-v-10846ed4", __vue__options__)
   }
 })()}
 });
@@ -309,7 +466,7 @@ _vue2.default.use(seneca);
 
 /* eslint-disable no-new */
 var app = new _vue2.default({
-    routes: _routes.routes,
+    router: router,
     seneca: seneca,
     render: function render(h) {
         return h(_App2.default);
@@ -331,13 +488,25 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.routes = undefined;
 
-var _Hello = require('.././components/Hello.vue');
+var _hello = require('.././components/hello.vue');
 
-var _Hello2 = _interopRequireDefault(_Hello);
+var _hello2 = _interopRequireDefault(_hello);
+
+var _red = require('.././components/red.vue');
+
+var _red2 = _interopRequireDefault(_red);
+
+var _blue = require('.././components/blue.vue');
+
+var _blue2 = _interopRequireDefault(_blue);
+
+var _green = require('.././components/green.vue');
+
+var _green2 = _interopRequireDefault(_green);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var routes = exports.routes = [{ path: '/hello', component: _Hello2.default }];
+var routes = exports.routes = [{ path: '/hello', component: _hello2.default }, { path: '/red', component: _red2.default }, { path: '/blue', component: _blue2.default }, { path: '/green', component: _green2.default }];
 
 });
 
