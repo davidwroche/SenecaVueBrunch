@@ -6,6 +6,12 @@ import { routes } from './router/routes';
 
 Vue.use(Router)
 
+var seneca;
+seneca = Seneca()
+    .test('print')
+    .client({type:'browser', pin:'a:*'})
+    .client({type:'browser', pin:'b:*'})
+
 const router =  new Router({
     routes,
     mode: 'history'
