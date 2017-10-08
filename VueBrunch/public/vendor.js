@@ -10404,6 +10404,35 @@ setTimeout(function () {
 module.exports = Vue$3;
   })();
 });
+
+require.register("vueify/lib/insert-css.js", function(exports, require, module) {
+  require = __makeRelativeRequire(require, {}, "vueify");
+  (function() {
+    var inserted = exports.cache = {}
+
+function noop () {}
+
+exports.insert = function (css) {
+  if (inserted[css]) return noop
+  inserted[css] = true
+
+  var elem = document.createElement('style')
+  elem.setAttribute('type', 'text/css')
+
+  if ('textContent' in elem) {
+    elem.textContent = css
+  } else {
+    elem.styleSheet.cssText = css
+  }
+
+  document.getElementsByTagName('head')[0].appendChild(elem)
+  return function () {
+    document.getElementsByTagName('head')[0].removeChild(elem)
+    inserted[css] = false
+  }
+}
+  })();
+});
 require.alias("process/browser.js", "process");
 require.alias("vue/dist/vue.runtime.common.js", "vue");
 require.alias("vue-router/dist/vue-router.common.js", "vue-router");process = require('process');require.register("___globals___", function(exports, require, module) {

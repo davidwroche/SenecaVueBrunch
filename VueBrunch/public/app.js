@@ -277,7 +277,6 @@ var __vue__options__ = (typeof module.exports === "function"? module.exports.opt
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
 __vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"second"}},[_c('h2',[_vm._v("Blue")]),_vm._v(" "),_c('p',[_vm._v(_vm._s(_vm.res))]),_vm._v(" "),_c('babybluesection',{attrs:{"res":_vm.res}})],1)}
 __vue__options__.staticRenderFns = []
-__vue__options__._scopeId = "data-v-142af727"
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
@@ -320,7 +319,6 @@ var __vue__options__ = (typeof module.exports === "function"? module.exports.opt
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
 __vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"third"}},[_c('h2',[_vm._v("Green")]),_vm._v(" "),_c('p',[_c('i',[_vm._v(_vm._s(_vm.show))])])])}
 __vue__options__.staticRenderFns = []
-__vue__options__._scopeId = "data-v-7ad29d86"
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
@@ -366,7 +364,6 @@ var __vue__options__ = (typeof module.exports === "function"? module.exports.opt
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
 __vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"hello"},[_c('h1',[_vm._v(_vm._s(_vm.msg))]),_vm._v(" "),_c('h2',[_vm._v("Essential Links")])])}
 __vue__options__.staticRenderFns = []
-__vue__options__._scopeId = "data-v-46f367d5"
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
@@ -436,6 +433,8 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
 
 ;require.register("index.js", function(exports, require, module) {
 'use strict';
+
+require('vueify/lib/insert-css');
 
 var _vue = require('vue');
 
