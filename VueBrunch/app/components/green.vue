@@ -17,8 +17,7 @@ export default {
 
   mounted(){
   var green = this;
-  var seneca = this.$options.parent.$options.parent.$options.seneca;
-
+  var seneca = this.$root.$options.seneca
     seneca.add('ann:show', function(msg, reply) {
           green.show = msg.show
           //yo.$emit('passValue',self.show)

@@ -264,7 +264,7 @@ exports.default = {
   },
   mounted: function mounted() {
     var blue = this;
-    var seneca = this.$options.parent.$options.parent.$options.seneca;
+    var seneca = this.$root.$options.seneca;
     seneca.add('cm:blue', function (msg, reply) {
       blue.res = msg.res.x;
       reply();
@@ -304,8 +304,7 @@ exports.default = {
   },
   mounted: function mounted() {
     var green = this;
-    var seneca = this.$options.parent.$options.parent.$options.seneca;
-
+    var seneca = this.$root.$options.seneca;
     seneca.add('ann:show', function (msg, reply) {
       green.show = msg.show;
 
@@ -331,51 +330,6 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
 })()}
 });
 
-;require.register("components/hello.vue", function(exports, require, module) {
-;(function(){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = {
-    name: 'hello',
-    data: function data() {
-        return {
-            msg: 'Welcom to Your Vue.js App'
-        };
-    },
-
-    created: function created() {},
-    mounted: function mounted() {
-        var self = this;
-
-        var seneca = self.$root.$options.seneca;
-
-        seneca.add('cm:blue', function (msg, reply) {
-            blue.res = msg.res.x;
-            reply();
-        });
-    }
-};
-})()
-if (module.exports.__esModule) module.exports = module.exports.default
-var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
-if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"hello"},[_c('h1',[_vm._v(_vm._s(_vm.msg))]),_vm._v(" "),_c('h2',[_vm._v("Essential Links")])])}
-__vue__options__.staticRenderFns = []
-if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), true)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-46f367d5", __vue__options__)
-  } else {
-    hotAPI.reload("data-v-46f367d5", __vue__options__)
-  }
-})()}
-});
-
 ;require.register("components/red.vue", function(exports, require, module) {
 ;(function(){
 'use strict';
@@ -393,7 +347,7 @@ exports.default = {
     methods: {
 
         act: function act() {
-            var seneca = this.$options.parent.$options.parent.$options.seneca;
+            var seneca = this.$root.$options.seneca;
             seneca.act(this.msg, function (err, out) {
                 this.act({
                     cm: 'blue',
@@ -403,7 +357,7 @@ exports.default = {
         },
 
         show: function show() {
-            var seneca = this.$options.parent.$options.parent.$options.seneca;
+            var seneca = this.$root.$options.seneca;
             seneca.act({
                 ann: 'show',
                 show: this.msg
@@ -487,10 +441,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.routes = undefined;
 
-var _hello = require('.././components/hello.vue');
-
-var _hello2 = _interopRequireDefault(_hello);
-
 var _red = require('.././components/red.vue');
 
 var _red2 = _interopRequireDefault(_red);
@@ -505,7 +455,7 @@ var _green2 = _interopRequireDefault(_green);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var routes = exports.routes = [{ path: '/hello', component: _hello2.default }, { path: '/red', component: _red2.default }, { path: '/blue', component: _blue2.default }, { path: '/green', component: _green2.default }];
+var routes = exports.routes = [{ path: '/red', component: _red2.default }, { path: '/blue', component: _blue2.default }, { path: '/green', component: _green2.default }];
 
 });
 

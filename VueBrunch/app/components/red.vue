@@ -17,7 +17,7 @@
         methods: {
 
             act: function() {
-                var seneca = this.$options.parent.$options.parent.$options.seneca;
+              var seneca = this.$root.$options.seneca
                 seneca.act(this.msg, function(err, out) {
                     this.act({
                         cm: 'blue',
@@ -27,7 +27,7 @@
             },
 
             show: function() {
-                var seneca = this.$options.parent.$options.parent.$options.seneca;
+              var seneca = this.$root.$options.seneca
                 seneca.act({
                     ann: 'show',
                     show: this.msg
